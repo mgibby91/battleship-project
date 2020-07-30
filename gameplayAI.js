@@ -25,7 +25,7 @@ const easyModeGameplay = function() {
 
   if (shipSpaces.includes(playerBoard[row][col])) {
     playerBoard[row][col] = 'X';
-    return ['X', [row, col]];
+    shipGetsHit(['X', [row, col]])
   } else if (playerBoard[row][col] === 0) {
     playerBoard[row][col] = 'M';
   } else if (playerBoard[row][col] === 'X' || playerBoard[row][col] === 'M') {
@@ -56,7 +56,8 @@ const updatePlayerGameBoard = function() {
   if (shipSpaces.includes(playerBoard[row][col])) {
     playerBoard[row][col] = 'X';
     targetMovesArray.shift();
-    return ['X', [row, col]];
+    // return ['X', [row, col]];
+    shipGetsHit(['X', [row, col]]);
 
     // BUG: if this function gets called as a result of recursion in last else if statement...
     // then the return value, which is intended to go back to the mediumModePlay function...
@@ -122,9 +123,11 @@ const shipGetsHit = function(shipHitArray) {
 const mediumModeGameplay = function() {
 
   if (!targetMovesArray.length) {
-    const shipHit = easyModeGameplay();
+    // const shipHit = easyModeGameplay();
 
-    shipGetsHit(shipHit);
+    easyModeGameplay();
+
+    // shipGetsHit(shipHit);
   }
 
   // If there are valid moves in targetMovesArray, we use these over a random move
@@ -132,9 +135,11 @@ const mediumModeGameplay = function() {
 
     // BUG! if it's moving through the targetMovesArray and the next target is X or M, then it does nothing
 
-    const shipHit = updatePlayerGameBoard();
+    // const shipHit = updatePlayerGameBoard();
 
-    shipGetsHit(shipHit);
+    updatePlayerGameBoard();
+
+    // shipGetsHit(shipHit);
 
   }
 
