@@ -1,6 +1,6 @@
 
 // Initial board before ship placement
-let computerBoard = [
+let computerBoardArray = [
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -52,7 +52,6 @@ const boardStartToEnd = function(shipLength) {
 
 
 const updateBoardCompShips = function(shipInfo) {
-  console.log('ship info', shipInfo);
 
   const startRow = shipInfo[0][0];
   const endRow = shipInfo[1][0];
@@ -61,43 +60,43 @@ const updateBoardCompShips = function(shipInfo) {
 
   if (shipInfo[2] === 'col-up') {
     for (let i = startCol; i < endCol; i++) {
-      computerBoard[startRow][i] = shipInfo[3];
+      computerBoardArray[startRow][i] = shipInfo[3];
     }
   }
   else if (shipInfo[2] === 'row-right') {
     for (let i = startRow; i < endRow; i++) {
-      computerBoard[i][startCol] = shipInfo[3];
+      computerBoardArray[i][startCol] = shipInfo[3];
     }
   }
   else if (shipInfo[2] === 'col-down') {
     for (let i = startCol; i > endCol; i--) {
-      computerBoard[startRow][i] = shipInfo[3];
+      computerBoardArray[startRow][i] = shipInfo[3];
     }
   }
   else if (shipInfo[2] === 'row-left') {
     for (let i = startRow; i > endRow; i--) {
-      computerBoard[i][startCol] = shipInfo[3];
+      computerBoardArray[i][startCol] = shipInfo[3];
     }
   }
 
-  // console.log('computer board', JSON.stringify(computerBoard));
+  // console.log('computer board', JSON.stringify(computerBoardArray));
 
-  // console.log(computerBoard[0]);
-  // console.log(computerBoard[1]);
-  // console.log(computerBoard[2]);
-  // console.log(computerBoard[3]);
-  // console.log(computerBoard[4]);
-  // console.log(computerBoard[5]);
-  // console.log(computerBoard[6]);
-  // console.log(computerBoard[7]);
-  // console.log(computerBoard[8]);
-  // console.log(computerBoard[9]);
+  // console.log(computerBoardArray[0]);
+  // console.log(computerBoardArray[1]);
+  // console.log(computerBoardArray[2]);
+  // console.log(computerBoardArray[3]);
+  // console.log(computerBoardArray[4]);
+  // console.log(computerBoardArray[5]);
+  // console.log(computerBoardArray[6]);
+  // console.log(computerBoardArray[7]);
+  // console.log(computerBoardArray[8]);
+  // console.log(computerBoardArray[9]);
 
-  // console.log(computerBoard);
+  // console.log(computerBoardArray);
 
-  for (let i = 0; i < computerBoard.length; i++) {
-    console.log(computerBoard[i]);
-  }
+  // for (let i = 0; i < computerBoardArray.length; i++) {
+  //   console.log(computerBoardArray[i]);
+  // }
 
 }
 
@@ -105,7 +104,7 @@ const updateBoardCompShips = function(shipInfo) {
 
 
 // Easy mode - completely random placement
-const easyShipPlacement = function(computerBoard) {
+const easyShipPlacement = function() {
 
   let count = 0;
 
@@ -135,7 +134,7 @@ const easyShipPlacement = function(computerBoard) {
       // col up
       if (shipInfo[2] === 'col-up') {
         for (let i = startCol; i < endCol; i++) {
-          if (computerBoard[startRow][i] !== 0) {
+          if (computerBoardArray[startRow][i] !== 0) {
             isEmpty = false;
           }
         }
@@ -143,7 +142,7 @@ const easyShipPlacement = function(computerBoard) {
       // row up
       if (shipInfo[2] === 'row-right') {
         for (let i = startRow; i < endRow; i++) {
-          if (computerBoard[i][startCol] !== 0) {
+          if (computerBoardArray[i][startCol] !== 0) {
             isEmpty = false;
           }
         }
@@ -151,7 +150,7 @@ const easyShipPlacement = function(computerBoard) {
       // col up
       if (shipInfo[2] === 'col-down') {
         for (let i = startCol; i > endCol; i--) {
-          if (computerBoard[startRow][i] !== 0) {
+          if (computerBoardArray[startRow][i] !== 0) {
             isEmpty = false;
           }
         }
@@ -159,7 +158,7 @@ const easyShipPlacement = function(computerBoard) {
       // row up
       if (shipInfo[2] === 'row-left') {
         for (let i = startRow; i > endRow; i--) {
-          if (computerBoard[i][startCol] !== 0) {
+          if (computerBoardArray[i][startCol] !== 0) {
             isEmpty = false;
           }
         }
@@ -178,4 +177,3 @@ const easyShipPlacement = function(computerBoard) {
 
 }
 
-easyShipPlacement(computerBoard);

@@ -1,4 +1,6 @@
 
+
+
 // Select buttons for ship placement
 
 class ShipButtons {
@@ -73,13 +75,15 @@ class ShipPlacement {
       col.style.background = 'lightskyblue';
     }
 
-    if (e.target.className.slice(0, 3) === 'col') {
+    if (e.target.className.split(' ')[0] === 'player-col') {
 
       const orientationBtnSelected = document.querySelector('.orientation-selected');
       const shipSelectedText = document.querySelector('.ship-selected').textContent;
       const shipNum = Number(shipSelectedText.slice(shipSelectedText.length - 2, shipSelectedText.length - 1));
-      const currentColNum = Number(e.target.className[8]);
+      const currentColNum = Number(e.target.className.split(' ')[1][e.target.className.split(' ')[1].length - 1]);
       const parentRow = e.target.parentElement;
+
+      // console.log(`player-col-${currentColNum}`);
 
 
       // Logic to highlight possible ship spaces horizontally
@@ -106,18 +110,19 @@ class ShipPlacement {
 
         this.isOnBoard = true;
 
-        const parentRowNum = Number(parentRow.className[8]);
+        const parentRowNum = Number(parentRow.className.split(' ')[1][parentRow.className.split(' ')[1].length - 1]);
 
         for (let i = parentRowNum; i < parentRowNum + shipNum; i++) {
-          const currentRow = document.querySelector(`.row.row-${i}`);
+          const currentRow = document.querySelector(`.player-row.player-row-${i}`);
 
           if (i > 9) {
             this.isOnBoard = false;
             continue
           };
 
+
           for (let col of currentRow.children) {
-            if (col.className.slice(0, 9) === `col col-${currentColNum}`) {
+            if (col.className.split(' ')[1] === `player-col-${currentColNum}`) {
               col.style.background = 'lightseagreen';
             }
           }
@@ -227,7 +232,7 @@ class ShipPlacement {
 }
 
 const playerBoard = document.querySelector('.player-board-container');
-const playerBoardAllCols = document.querySelectorAll('.col');
+const playerBoardAllCols = document.querySelectorAll('.player-col');
 const playerResetShipBtn = document.querySelector('.reset-ships-btn');
 
 const shipPlacement = new ShipPlacement(playerBoard, playerBoardAllCols, playerResetShipBtn);
@@ -260,12 +265,32 @@ function startGame() {
 
   const chosenDifficulty = document.querySelector('.difficulty-selected').textContent.toLowerCase();
 
-  // need to loop through board map where ships are placed to player board to be used by AI
   // AI chooses their board
   // map difficulty chosen to function that AI will use for their turn
   // logic for player shooting on computer board
   // turn player-ships-container into previos moves chart
 
+  setPlayerShips();
+  easyShipPlacement();
+
+  console.log(playerBoardArray);
+  console.log(computerBoardArray);
 
 }
+
+function setPlayerShips() {
+
+  for (let col of playerBoardAllCols) {
+    if (col.className.split(' ')[2] === 'ship-placement-selected') {
+      const row = Number(col.parentElement.className.split(' ')[1][col.parentElement.className.split(' ')[1].length - 1]);
+      const column = Number(col.className.split(' ')[1][col.className.split(' ')[1].length - 1]);
+      const shipSymbol = col.className.split(' ')[3];
+
+      playerBoardArray[row][column] = shipSymbol;
+    }
+  }
+
+}
+
+
 

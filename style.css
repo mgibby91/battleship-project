@@ -5,38 +5,70 @@
 }
 
 body {
-  height: 100vh;
+  /* height: 100vh; */
   font-family: 'Lato', sans-serif;
   background: linear-gradient(to bottom right, rgb(0, 204, 255), rgb(0, 153, 133));
 }
 
-.player-container {
-  margin: 100px auto;
-  padding: 100px 0;
+.main-container {
+  margin: 60px auto;
+  padding: 30px 0;
   max-width: 600px;
   border-radius: 5px;
   display: flex;
-  justify-content: space-evenly;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  height: 750px;
   align-items: center;
   background: #aaaaaa;
   box-shadow: 5px 5px 15px;
 }
 
-.player-container .player-board-container {
+h3 {
+  margin-bottom: 0.3rem;
+}
+
+
+/* Computer Board */
+.main-container .computer-board-container {
+  margin-bottom: 30px;
+}
+
+.main-container .computer-board-container .computer-row .computer-col:hover {
+  background: lightseagreen !important;
+  cursor: pointer;
+}
+
+
+
+
+/* Player Board w/ Computer Board styles */
+.main-container .player-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.main-container .player-board-container,
+.main-container .computer-board-container {
   width: 300px;
   height: 300px;
   /* border: 1px solid black; */
   background: lightskyblue;
 }
 
-.player-container .player-board-container .row {
+.main-container .player-board-container .player-row,
+.main-container .computer-board-container .computer-row {
   display: grid;
   grid-template-columns: repeat(10, auto);
   height: 30px;
   width: 30px;
 }
 
-.player-container .player-board-container .row .col {
+.main-container .player-board-container .player-row .player-col,
+.main-container .computer-board-container .computer-row .computer-col {
   display: grid;
   grid-template-rows: repeat(10, 1fr);
   border: 1px solid black;
@@ -44,17 +76,13 @@ body {
   width: 30px;
 }
 
-.player-container .player-board-container .row .col:hover {
+.main-container .player-board-container .player-row .player-col:hover {
   cursor: pointer;
-  /* background: lightseagreen; */
 }
 
 
-/* Features to add */
-/* - toggle between adding ships UI and log of all previous moves */
-
 /* SHIPS CONTAINER */
-.player-container .player-ships-container {
+.main-container .player-ships-container {
   display: flex;
   flex-direction: column;
   border-radius: 4px;
@@ -66,14 +94,14 @@ body {
 }
 
 /* Orientation Container */
-.player-container .player-ships-container .orientation-container {
+.main-container .player-ships-container .orientation-container {
   display: flex;
   justify-content: space-evenly;
   padding: 0.5rem;
   align-items: center;
 }
 
-.player-container .player-ships-container .orientation-container .orientation-btn {
+.main-container .player-ships-container .orientation-container .orientation-btn {
   background: rgb(42, 122, 212);
   color: white;
   padding: 0.15rem 0.4rem;
@@ -85,12 +113,12 @@ body {
   font-weight: 300;
 }
 
-.player-container .player-ships-container .orientation-container .orientation-btn.orientation-selected {
+.main-container .player-ships-container .orientation-container .orientation-btn.orientation-selected {
   border: 3px solid #f4f4f4;
   border-radius: 2px;
 }
 
-.player-container .player-ships-container .orientation-container .orientation-btn:hover {
+.main-container .player-ships-container .orientation-container .orientation-btn:hover {
   cursor: pointer;
   /* background-color: #f4f4f4;
   color:rgb(38, 153, 192); */
@@ -98,7 +126,7 @@ body {
 
 
 /* Ships Displays */
-.player-container .player-ships-container .ships-display {
+.main-container .player-ships-container .ships-display {
   display: flex;
   flex-direction: column;
   height: 80%;
@@ -106,7 +134,7 @@ body {
   align-items: center;
 }
 
-.player-container .player-ships-container .ships-display .ship {
+.main-container .player-ships-container .ships-display .ship {
   padding: 0.2rem 0.8rem;
   font-size: 0.7rem;
   font-weight: 500;
@@ -116,13 +144,13 @@ body {
   background: white;
 }
 
-.player-container .player-ships-container .ships-display .ship:hover {
+.main-container .player-ships-container .ships-display .ship:hover {
   cursor: pointer;
   color: white;
   background: lightseagreen;
 }
 
-.player-container .player-ships-container .ships-display .ship.ship-selected {
+.main-container .player-ships-container .ships-display .ship.ship-selected {
   color: white;
   background: lightseagreen;
 }
