@@ -239,58 +239,67 @@ const shipPlacement = new ShipPlacement(playerBoard, playerBoardAllCols, playerR
 
 
 
+class StartGame {
+  constructor(difficultyButtonContainer, easyButton, mediumButton, startGameButton) {
+    this.difficultyButtonContainer = difficultyButtonContainer;
+    this.easyButton = easyButton;
+    this.mediumButton = mediumButton;
+    this.startGameButton = startGameButton;
+
+    difficultyButtonContainer.addEventListener('click', this.toggleDifficulty);
+    startGameButton.addEventListener('click', this.startGame);
+  }
+
+  toggleDifficulty(e) {
+
+    if (e.target.className.split(' ')[1] === 'difficulty-button') {
+      easyButton.classList.remove('difficulty-selected');
+      mediumButton.classList.remove('difficulty-selected');
+
+      e.target.classList.add('difficulty-selected');
+    }
+
+  }
+
+
+  startGame = () => {
+
+    const chosenDifficulty = document.querySelector('.difficulty-selected').textContent.toLowerCase();
+
+    // map difficulty chosen to function that AI will use for their turn
+    // logic for player shooting on computer board
+    // turn player-ships-container into previos moves chart
+
+    this.setPlayerShips();
+    easyShipPlacement();
+
+    console.log(playerBoardArray);
+    console.log(computerBoardArray);
+
+    document.querySelector('.computer-board-container').style.pointerEvents = 'all';
+  }
+
+  setPlayerShips() {
+
+    for (let col of playerBoardAllCols) {
+      if (col.className.split(' ')[2] === 'ship-placement-selected') {
+        const row = Number(col.parentElement.className.split(' ')[1][col.parentElement.className.split(' ')[1].length - 1]);
+        const column = Number(col.className.split(' ')[1][col.className.split(' ')[1].length - 1]);
+        const shipSymbol = col.className.split(' ')[3];
+
+        playerBoardArray[row][column] = shipSymbol;
+      }
+    }
+
+  }
+
+}
+
 
 const difficultyButtonContainer = document.querySelector('.difficulty-button-container');
 const easyButton = document.querySelector('.easy-button');
 const mediumButton = document.querySelector('.medium-button');
 const startGameButton = document.querySelector('.start-game-button');
 
-difficultyButtonContainer.addEventListener('click', toggleDifficulty);
-
-function toggleDifficulty(e) {
-
-  if (e.target.className.split(' ')[1] === 'difficulty-button') {
-    easyButton.classList.remove('difficulty-selected');
-    mediumButton.classList.remove('difficulty-selected');
-
-    e.target.classList.add('difficulty-selected');
-  }
-
-}
-
-
-startGameButton.addEventListener('click', startGame);
-
-function startGame() {
-
-  const chosenDifficulty = document.querySelector('.difficulty-selected').textContent.toLowerCase();
-
-  // AI chooses their board
-  // map difficulty chosen to function that AI will use for their turn
-  // logic for player shooting on computer board
-  // turn player-ships-container into previos moves chart
-
-  setPlayerShips();
-  easyShipPlacement();
-
-  console.log(playerBoardArray);
-  console.log(computerBoardArray);
-
-}
-
-function setPlayerShips() {
-
-  for (let col of playerBoardAllCols) {
-    if (col.className.split(' ')[2] === 'ship-placement-selected') {
-      const row = Number(col.parentElement.className.split(' ')[1][col.parentElement.className.split(' ')[1].length - 1]);
-      const column = Number(col.className.split(' ')[1][col.className.split(' ')[1].length - 1]);
-      const shipSymbol = col.className.split(' ')[3];
-
-      playerBoardArray[row][column] = shipSymbol;
-    }
-  }
-
-}
-
-
+const startGame = new StartGame(difficultyButtonContainer, easyButton, mediumButton, startGameButton);
 

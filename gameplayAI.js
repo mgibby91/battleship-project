@@ -36,12 +36,12 @@ const easyModeGameplay = function() {
 
   const shipSpaces = ['C', 'B', 'R', 'S', 'D'];
 
-  if (shipSpaces.includes(playerBoard[row][col])) {
-    playerBoard[row][col] = 'X';
+  if (shipSpaces.includes(playerBoardArray[row][col])) {
+    playerBoardArray[row][col] = 'X';
     shipGetsHit(['X', [row, col]])
-  } else if (playerBoard[row][col] === 0) {
-    playerBoard[row][col] = 'M';
-  } else if (playerBoard[row][col] === 'X' || playerBoard[row][col] === 'M') {
+  } else if (playerBoardArray[row][col] === 0) {
+    playerBoardArray[row][col] = 'M';
+  } else if (playerBoardArray[row][col] === 'X' || playerBoardArray[row][col] === 'M') {
     easyModeGameplay();
   }
 
@@ -66,8 +66,8 @@ const updatePlayerGameBoard = function() {
   const row = targetMovesArray[0][0];
   const col = targetMovesArray[0][1];
 
-  if (shipSpaces.includes(playerBoard[row][col])) {
-    playerBoard[row][col] = 'X';
+  if (shipSpaces.includes(playerBoardArray[row][col])) {
+    playerBoardArray[row][col] = 'X';
     targetMovesArray.shift();
     // return ['X', [row, col]];
     shipGetsHit(['X', [row, col]]);
@@ -77,10 +77,10 @@ const updatePlayerGameBoard = function() {
     // which will in turn call the shipGetsHit function.
 
 
-  } else if (playerBoard[row][col] === 0) {
-    playerBoard[row][col] = 'M';
+  } else if (playerBoardArray[row][col] === 0) {
+    playerBoardArray[row][col] = 'M';
     targetMovesArray.shift();
-  } else if (playerBoard[row][col] === 'X' || playerBoard[row][col] === 'M') {
+  } else if (playerBoardArray[row][col] === 'X' || playerBoardArray[row][col] === 'M') {
     targetMovesArray.shift();
     updatePlayerGameBoard();
   }
@@ -122,8 +122,8 @@ const shipGetsHit = function(shipHitArray) {
       //   }
       // }
 
-      // nextMove on playerBoard is not a past move (hit or miss), then push to targetMovesArray
-      if (playerBoard[move[0]][move[1]] !== 'H' && playerBoard[move[0]][move[1]] !== 'M') {
+      // nextMove on playerBoardArray is not a past move (hit or miss), then push to targetMovesArray
+      if (playerBoardArray[move[0]][move[1]] !== 'H' && playerBoardArray[move[0]][move[1]] !== 'M') {
         targetMovesArray.push(move);
       }
     }
@@ -156,9 +156,9 @@ const mediumModeGameplay = function() {
 
   }
 
-  // for (let i = 0; i < playerBoard.length; i++) {
-  //   console.log(playerBoard[i]);
-  // }
+  for (let i = 0; i < playerBoardArray.length; i++) {
+    console.log(playerBoardArray[i]);
+  }
 
   // console.log('----------------------------');
 

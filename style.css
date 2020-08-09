@@ -33,13 +33,13 @@ h3 {
 /* Computer Board */
 .main-container .computer-board-container {
   margin-bottom: 30px;
+  pointer-events: none;
 }
 
 .main-container .computer-board-container .computer-row .computer-col:hover {
   background: lightseagreen !important;
   cursor: pointer;
 }
-
 
 
 
@@ -159,6 +159,16 @@ h3 {
 /* SHIP PLACEMENT ON BOARD */
 .ship-placement-selected {
   background: slategray !important;
+}
+
+.player-miss {  
+  background: white !important;
+  /* border: 1px solid black; */
+}
+
+.player-hit {  
+  background: rgb(255, 73, 73) !important;
+  /* border: 1px solid black; */
 }
 
 
