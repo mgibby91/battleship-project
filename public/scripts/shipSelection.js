@@ -83,9 +83,6 @@ class ShipPlacement {
       const currentColNum = Number(e.target.className.split(' ')[1][e.target.className.split(' ')[1].length - 1]);
       const parentRow = e.target.parentElement;
 
-      // console.log(`player-col-${currentColNum}`);
-
-
       // Logic to highlight possible ship spaces horizontally
       if (orientationBtnSelected.id === 'horizontal') {
 
