@@ -245,6 +245,7 @@ class StartGame {
 
     difficultyButtonContainer.addEventListener('click', this.toggleDifficulty);
     startGameButton.addEventListener('click', this.startGame);
+    startGameButton.addEventListener('click', this.updateShipsDB);
   }
 
   toggleDifficulty(e) {
@@ -270,9 +271,6 @@ class StartGame {
     this.setPlayerShips();
     easyShipPlacement();
 
-    console.log(playerBoardArray);
-    console.log(computerBoardArray);
-
     document.querySelector('.computer-board-container').style.pointerEvents = 'all';
   }
 
@@ -290,6 +288,29 @@ class StartGame {
 
   }
 
+  updateShipsDB() {
+
+    const shipsData = {
+      computerBoardArray,
+      playerBoardArray
+    };
+
+    console.log(shipsData);
+
+    $.post({
+      url: '/ships',
+      data: JSON.stringify(shipsData),
+      contentType: 'application/json',
+    })
+      .then(function() {
+        console.log('DB has been updated with initial ship placement');
+      })
+      .catch(function() {
+        console.log('Error thrown');
+      })
+
+  }
+
 }
 
 
@@ -299,4 +320,5 @@ const mediumButton = document.querySelector('.medium-button');
 const startGameButton = document.querySelector('.start-game-button');
 
 const startGame = new StartGame(difficultyButtonContainer, easyButton, mediumButton, startGameButton);
+
 

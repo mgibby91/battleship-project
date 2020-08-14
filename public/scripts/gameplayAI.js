@@ -169,3 +169,17 @@ const mediumModeGameplay = function() {
 }
 
 
+
+
+
+$(() => {
+
+  $.ajax('/ships', { method: 'GET' })
+    .then(function(shipsArrays) {
+      console.log(shipsArrays);
+    })
+    .catch(function(err) {
+      console.log('Error! ', err);
+    })
+
+})
