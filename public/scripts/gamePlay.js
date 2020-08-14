@@ -94,3 +94,16 @@ function updatePlayerBoardUI() {
 
 }
 
+
+
+// Remaining
+// - random amount of time for computer to shoot shot! between 0.5 - 2 s
+// - use spinner for computer thinking about shot
+// - show sunken ship after all hits on ship
+// - hook up to server and render pages from there
+// - use EJS for decreasing lines of HTML
+// - use DB (or maybe local storage) for storing game state (refresh page and still have active game)
+// - display all previous moves
+// - function to determine if ship has sunk for above
+// - put A-H and 1-10 around the boards
+// - leaderboard for games against AI
