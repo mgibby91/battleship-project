@@ -27,7 +27,9 @@ function playerFireShot(e) {
       shipType = computerBoardArray[row][col];
 
       computerBoardArray[row][col] = 'X';
-      updatePreviousShotsList(row, col, 'Player', 'HIT');
+
+      const isShipSunk = determineShipSunk(computerBoardArray, shipType);
+      updatePreviousShotsList(row, col, 'Player', 'HIT', isShipSunk);
     }
 
     updateComputerBoardUI();
@@ -100,13 +102,44 @@ function updatePlayerBoardUI() {
 
 // .....to here (CLASS firing shots);
 
-function updatePreviousShotsList(row, col, playerType, shotSuccess, shipSunkBool) {
+function updatePreviousShotsList(row, col, playerType, shotSuccess, shipSunk) {
 
   const rowAlphaCoords = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'];
 
-  const messageHTML = `<p>${playerType} fires ${rowAlphaCoords[row]}${col}: ${shotSuccess}`;
+  const messageHTML = `<p>${playerType} fires ${rowAlphaCoords[row]}${col + 1}: ${shotSuccess}</p>`;
 
   document.querySelector('.previous-shots-list').insertAdjacentHTML('afterbegin', messageHTML);
+
+  if (shipSunk) {
+
+    const shipSunkMessageHTML = `<p>${playerType} sinks a ${shipSunk}!`;
+    // for effect!
+    setTimeout(() => {
+      document.querySelector('.previous-shots-list').insertAdjacentHTML('afterbegin', shipSunkMessageHTML);
+    }, 1000);
+
+  }
+}
+
+
+function determineShipSunk(boardType, shipType) {
+
+  for (let position of boardType) {
+    if (position.includes(shipType)) {
+      return false;
+    }
+  }
+
+  const shipNames = {
+    C: 'Carrier', // Carrier
+    B: 'Battleship', // Battleship
+    R: 'Cruiser', // Cruiser - didn't want to be same as Carrier
+    S: 'Submarine', // Submarine
+    D: 'Destroyer' // Destroyer
+  };
+
+  return shipNames[shipType];
+
 }
 
 

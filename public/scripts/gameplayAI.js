@@ -37,9 +37,12 @@ const easyModeGameplay = function() {
   const shipSpaces = ['C', 'B', 'R', 'S', 'D'];
 
   if (shipSpaces.includes(playerBoardArray[row][col])) {
+    shipType = playerBoardArray[row][col];
     playerBoardArray[row][col] = 'X';
-    shipGetsHit(['X', [row, col]])
-    updatePreviousShotsList(row, col, 'Computer', 'HIT');
+    shipGetsHit(['X', [row, col]]);
+
+    const isShipSunk = determineShipSunk(playerBoardArray, shipType);
+    updatePreviousShotsList(row, col, 'Computer', 'HIT', isShipSunk);
   } else if (playerBoardArray[row][col] === 0) {
     playerBoardArray[row][col] = 'M';
     updatePreviousShotsList(row, col, 'Computer', 'MISS');
@@ -69,6 +72,7 @@ const updatePlayerGameBoard = function() {
   const col = targetMovesArray[0][1];
 
   if (shipSpaces.includes(playerBoardArray[row][col])) {
+    shipType = playerBoardArray[row][col];
     playerBoardArray[row][col] = 'X';
     targetMovesArray.shift();
     // return ['X', [row, col]];
@@ -78,7 +82,8 @@ const updatePlayerGameBoard = function() {
     // then the return value, which is intended to go back to the mediumModePlay function...
     // which will in turn call the shipGetsHit function.
 
-    updatePreviousShotsList(row, col, 'Computer', 'HIT');
+    const isShipSunk = determineShipSunk(playerBoardArray, shipType);
+    updatePreviousShotsList(row, col, 'Computer', 'HIT', isShipSunk);
 
   } else if (playerBoardArray[row][col] === 0) {
     playerBoardArray[row][col] = 'M';
@@ -160,9 +165,9 @@ const mediumModeGameplay = function() {
 
   }
 
-  for (let i = 0; i < playerBoardArray.length; i++) {
-    console.log(playerBoardArray[i]);
-  }
+  // for (let i = 0; i < playerBoardArray.length; i++) {
+  //   console.log(playerBoardArray[i]);
+  // }
 
   // console.log('----------------------------');
 
