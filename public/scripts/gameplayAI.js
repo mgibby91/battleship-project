@@ -78,10 +78,12 @@ const updatePlayerGameBoard = function() {
     // then the return value, which is intended to go back to the mediumModePlay function...
     // which will in turn call the shipGetsHit function.
 
+    updatePreviousShotsList(row, col, 'Computer', 'HIT');
 
   } else if (playerBoardArray[row][col] === 0) {
     playerBoardArray[row][col] = 'M';
     targetMovesArray.shift();
+    updatePreviousShotsList(row, col, 'Computer', 'MISS');
   } else if (playerBoardArray[row][col] === 'X' || playerBoardArray[row][col] === 'M') {
     targetMovesArray.shift();
     updatePlayerGameBoard();
