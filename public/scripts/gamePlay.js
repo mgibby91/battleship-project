@@ -5,6 +5,8 @@ const computerBoardAllCols = document.querySelectorAll('.computer-col');
 
 computerBoardContainer.addEventListener('click', playerFireShot);
 
+// CLASS firing shots here to...
+
 function playerFireShot(e) {
 
   let shipType;
@@ -93,6 +95,17 @@ function updatePlayerBoardUI() {
   }
 
 }
+
+// .....to here (CLASS firing shots);
+
+
+
+
+
+
+
+
+
 
 
 $(() => {

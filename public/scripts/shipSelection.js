@@ -237,15 +237,17 @@ const shipPlacement = new ShipPlacement(playerBoard, playerBoardAllCols, playerR
 
 
 class StartGame {
-  constructor(difficultyButtonContainer, easyButton, mediumButton, startGameButton) {
+  constructor(difficultyButtonContainer, easyButton, mediumButton, startGameButton, startGameContainer) {
     this.difficultyButtonContainer = difficultyButtonContainer;
     this.easyButton = easyButton;
     this.mediumButton = mediumButton;
     this.startGameButton = startGameButton;
+    this.startGameContainer = startGameContainer;
 
     difficultyButtonContainer.addEventListener('click', this.toggleDifficulty);
     startGameButton.addEventListener('click', this.startGame);
     startGameButton.addEventListener('click', this.updateShipsDB);
+    startGameButton.addEventListener('click', this.changeStartButtons);
   }
 
   toggleDifficulty(e) {
@@ -337,6 +339,18 @@ class StartGame {
 
   }
 
+  changeStartButtons() {
+
+    startGameContainer.remove();
+    document.querySelector('.orientation-container').remove();
+    document.querySelector('.reset-ships-btn').remove();
+    document.querySelector('.reset-game-btn').style.display = 'flex';
+
+    document.querySelector('.previous-shots-container').style.display = 'flex';
+
+  }
+
+
 }
 
 
@@ -344,7 +358,8 @@ const difficultyButtonContainer = document.querySelector('.difficulty-button-con
 const easyButton = document.querySelector('.easy-button');
 const mediumButton = document.querySelector('.medium-button');
 const startGameButton = document.querySelector('.start-game-button');
+const startGameContainer = document.querySelector('.start-game-container');
 
-const startGame = new StartGame(difficultyButtonContainer, easyButton, mediumButton, startGameButton);
+const startGame = new StartGame(difficultyButtonContainer, easyButton, mediumButton, startGameButton, startGameContainer);
 
 

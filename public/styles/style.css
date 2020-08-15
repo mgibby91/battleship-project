@@ -92,6 +92,7 @@ h3 {
   box-shadow: 2px 2px 7px;
   background: #4e4e4e;
   font-size: 0.8rem;
+  align-items: center;
 }
 
 /* Orientation Container */
@@ -195,6 +196,21 @@ h3 {
   transition: 0.1s;
 }
 
+/* Reset game button */
+.ships-all-btns-container .reset-game-btn {
+  background: rgb(255, 73, 73);
+  padding: 0.4rem 0.8rem;
+  border-radius: 3px;
+  box-shadow: 2px 2px 7px;
+  display: none;
+}
+
+.ships-all-btns-container .reset-game-btn:hover {
+  cursor: pointer;
+  transform: translateY(-2px);
+  transition: 0.1s;
+}
+
 
 /* START GAME BUTTONS/CONTAINER */
 .start-game-container {
@@ -257,6 +273,36 @@ h3 {
   cursor: pointer;
   transform: translateY(-2px);
   transition: 0.1s;
+}
+
+
+/* Previous shots container styles */
+.player-ships-container .previous-shots-container {
+  width: 85%;
+  height: 85%;
+  margin-bottom: 1.35rem;
+  border: 1px solid #fff;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.3rem;
+  overflow: auto;
+}
+
+.player-ships-container .previous-shots-container h3 {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 400;
+  text-decoration: underline;
+}
+
+.player-ships-container .previous-shots-container .previous-shots-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 200;
 }
 
 
