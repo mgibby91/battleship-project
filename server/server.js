@@ -7,7 +7,10 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(express.static("public"));
 
-let boardsDB = {};
+let boardsDB = {
+  playBoardArray: [],
+  compBoardArray: [],
+};
 
 app.post('/ships', (req, res) => {
 
@@ -19,7 +22,6 @@ app.post('/ships', (req, res) => {
 
   let data = req.body;
   boardsDB = data;
-
   console.log(boardsDB);
   res.end();
 });
@@ -27,7 +29,6 @@ app.post('/ships', (req, res) => {
 app.get('/ships', (req, res) => {
 
   res.send(boardsDB);
-
 })
 
 app.listen(PORT, () => {
