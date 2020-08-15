@@ -301,8 +301,13 @@ h3 {
   flex-direction: column;
   align-items: center;
   color: white;
-  font-size: 0.8rem;
-  font-weight: 200;
+  font-size: 0.7rem;
+  font-weight: 300;
+}
+
+.player-ships-container .previous-shots-container .previous-shots-list p {
+  line-height: 1rem;
+  letter-spacing: 0.04rem;
 }
 
 

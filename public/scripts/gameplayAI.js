@@ -39,8 +39,10 @@ const easyModeGameplay = function() {
   if (shipSpaces.includes(playerBoardArray[row][col])) {
     playerBoardArray[row][col] = 'X';
     shipGetsHit(['X', [row, col]])
+    updatePreviousShotsList(row, col, 'Computer', 'HIT');
   } else if (playerBoardArray[row][col] === 0) {
     playerBoardArray[row][col] = 'M';
+    updatePreviousShotsList(row, col, 'Computer', 'MISS');
   } else if (playerBoardArray[row][col] === 'X' || playerBoardArray[row][col] === 'M') {
     easyModeGameplay();
   }

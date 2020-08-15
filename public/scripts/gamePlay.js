@@ -18,6 +18,7 @@ function playerFireShot(e) {
     if (computerBoardArray[row][col] === 0) {
       // Miss
       computerBoardArray[row][col] = 'M';
+      updatePreviousShotsList(row, col, 'Player', 'MISS');
 
     } else if (computerBoardArray[row][col] === 'X' || computerBoardArray[row][col] === 'M') {
       // already shot on space
@@ -26,6 +27,7 @@ function playerFireShot(e) {
       shipType = computerBoardArray[row][col];
 
       computerBoardArray[row][col] = 'X';
+      updatePreviousShotsList(row, col, 'Player', 'HIT');
     }
 
     updateComputerBoardUI();
@@ -98,13 +100,14 @@ function updatePlayerBoardUI() {
 
 // .....to here (CLASS firing shots);
 
+function updatePreviousShotsList(row, col, playerType, shotSuccess, shipSunkBool) {
 
+  const rowAlphaCoords = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'];
 
+  const messageHTML = `<p>${playerType} fires ${rowAlphaCoords[row]}${col}: ${shotSuccess}`;
 
-
-
-
-
+  document.querySelector('.previous-shots-list').insertAdjacentHTML('afterbegin', messageHTML);
+}
 
 
 
