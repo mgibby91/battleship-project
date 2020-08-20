@@ -116,7 +116,7 @@ function updatePreviousShotsList(row, col, playerType, shotSuccess, shipSunk) {
     // for effect!
     setTimeout(() => {
       document.querySelector('.previous-shots-list').insertAdjacentHTML('afterbegin', shipSunkMessageHTML);
-    }, 1000);
+    }, 500);
 
   }
 }

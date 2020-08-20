@@ -58,6 +58,7 @@ h3 {
   height: 300px;
   /* border: 1px solid black; */
   background: lightskyblue;
+  text-align: center;
 }
 
 .main-container .player-board-container .player-row,
@@ -312,4 +313,68 @@ h3 {
 
 
 
+
+/* PLAYER COORDINATES */
+.player-row.player-row-9 .player-col.player-col-0, 
+.player-row.player-row-9 .player-col.player-col-1, 
+.player-row.player-row-9 .player-col.player-col-2, 
+.player-row.player-row-9 .player-col.player-col-3, 
+.player-row.player-row-9 .player-col.player-col-4, 
+.player-row.player-row-9 .player-col.player-col-5, 
+.player-row.player-row-9 .player-col.player-col-6, 
+.player-row.player-row-9 .player-col.player-col-7, 
+.player-row.player-row-9 .player-col.player-col-8, 
+.player-row.player-row-9 .player-col.player-col-9,
+.computer-row.computer-row-9 .computer-col.computer-col-0, 
+.computer-row.computer-row-9 .computer-col.computer-col-1, 
+.computer-row.computer-row-9 .computer-col.computer-col-2, 
+.computer-row.computer-row-9 .computer-col.computer-col-3, 
+.computer-row.computer-row-9 .computer-col.computer-col-4, 
+.computer-row.computer-row-9 .computer-col.computer-col-5, 
+.computer-row.computer-row-9 .computer-col.computer-col-6, 
+.computer-row.computer-row-9 .computer-col.computer-col-7, 
+.computer-row.computer-row-9 .computer-col.computer-col-8, 
+.computer-row.computer-row-9 .computer-col.computer-col-9 {
+  position: relative;
+}
+
+.player-row.player-row-9 .coord-num,
+.computer-row.computer-row-9 .coord-num {
+  position: absolute;
+  top: 30px;
+  left: 9px;
+  font-weight: 600;
+}
+
+
+.player-row.player-row-0 .player-col.player-col-0,
+.player-row.player-row-1 .player-col.player-col-0,
+.player-row.player-row-2 .player-col.player-col-0,
+.player-row.player-row-3 .player-col.player-col-0,
+.player-row.player-row-4 .player-col.player-col-0,
+.player-row.player-row-5 .player-col.player-col-0,
+.player-row.player-row-6 .player-col.player-col-0,
+.player-row.player-row-7 .player-col.player-col-0,
+.player-row.player-row-8 .player-col.player-col-0,
+.player-row.player-row-9 .player-col.player-col-0,
+.computer-row.computer-row-0 .computer-col.computer-col-0,
+.computer-row.computer-row-1 .computer-col.computer-col-0,
+.computer-row.computer-row-2 .computer-col.computer-col-0,
+.computer-row.computer-row-3 .computer-col.computer-col-0,
+.computer-row.computer-row-4 .computer-col.computer-col-0,
+.computer-row.computer-row-5 .computer-col.computer-col-0,
+.computer-row.computer-row-6 .computer-col.computer-col-0,
+.computer-row.computer-row-7 .computer-col.computer-col-0,
+.computer-row.computer-row-8 .computer-col.computer-col-0,
+.computer-row.computer-row-9 .computer-col.computer-col-0 {
+  position: relative;
+}
+
+.player-col.player-col-0 .coord-letter,
+.computer-col.computer-col-0 .coord-letter {
+  position: absolute;
+  right: 36px;
+  bottom: 5px;
+  font-weight: 600;
+}
 
