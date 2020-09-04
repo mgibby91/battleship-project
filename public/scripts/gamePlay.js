@@ -34,6 +34,8 @@ function playerFireShot(e) {
 
     updateComputerBoardUI();
 
+    document.querySelector('.notify-turn').textContent = 'Computer Turn!';
+
     // delay for computer turn
     computerFireShot();
   }
@@ -76,6 +78,8 @@ function computerFireShot() {
     // re-enable pointer events for computer board
     computerBoardContainer.style.pointerEvents = 'all';
 
+    document.querySelector('.notify-turn').textContent = 'Player Turn!';
+
   }, 2000);
 
 
@@ -116,6 +120,17 @@ function updatePreviousShotsList(row, col, playerType, shotSuccess, shipSunk) {
     // for effect!
     setTimeout(() => {
       document.querySelector('.previous-shots-list').insertAdjacentHTML('afterbegin', shipSunkMessageHTML);
+
+      playerComputerOpposites = {
+        Player: 'computer',
+        Computer: 'player'
+      }
+
+      // update ships sunk list
+      const shipSunkFromList = document.querySelector(`.${playerComputerOpposites[playerType]}-${shipSunk.toLowerCase()}-sunk`);
+      console.log(shipSunkFromList);
+      shipSunkFromList.classList.add('ship-has-sunk');
+
     }, 500);
 
   }

@@ -13,7 +13,7 @@ body {
 
 .main-container {
   margin: 60px auto;
-  padding: 30px 0;
+  padding: 30px 0 60px;
   max-width: 600px;
   border-radius: 5px;
   display: flex;
@@ -28,6 +28,12 @@ body {
 
 h3 {
   margin-bottom: 0.3rem;
+}
+
+/* title for board */
+.board-title {
+  position: relative;
+  left: -116px;
 }
 
 
@@ -182,6 +188,7 @@ h3 {
   align-items: center;
   justify-content: space-evenly;
   height: 280px;
+  position: relative;
 }
 
 .ships-all-btns-container .reset-ships-btn {
@@ -279,8 +286,8 @@ h3 {
 
 /* Previous shots container styles */
 .player-ships-container .previous-shots-container {
-  width: 85%;
-  height: 85%;
+  width: 90%;
+  height: 95%;
   margin-bottom: 1.35rem;
   border: 1px solid #fff;
   display: none;
@@ -314,7 +321,7 @@ h3 {
 
 
 
-/* PLAYER COORDINATES */
+/* PLAYER / COMPUTER COORDINATES */
 .player-row.player-row-9 .player-col.player-col-0, 
 .player-row.player-row-9 .player-col.player-col-1, 
 .player-row.player-row-9 .player-col.player-col-2, 
@@ -378,3 +385,76 @@ h3 {
   font-weight: 600;
 }
 
+
+/* Container for showing if ship has been sunk for player/computer */
+
+.computer-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.ships-sunk-container {
+  display: flex;
+  flex-direction: column;
+  border-radius: 4px;
+  height: 240px;
+  width: 200px;
+  box-shadow: 2px 2px 7px;
+  background: #4e4e4e;
+  font-size: 0.8rem;
+  align-items: center;
+  padding: 0.25rem 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.ships-sunk-container .computer-ships-sunk-container,
+.ships-sunk-container .player-ships-sunk-container {
+  height: 50%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.1rem;
+  color: white;
+}
+
+.ships-sunk-container p {
+  text-decoration: underline;
+  color: lightseagreen;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.ships-sunk-container .computer-ships-sunk,
+.ships-sunk-container .player-ships-sunk {
+  margin-top: 0.4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.07rem;
+  font-weight: 600;
+}
+
+.ship-has-sunk {
+  text-decoration: line-through;
+  color: rgb(255, 73, 73);
+}
+
+
+
+/* DISPLAY TURN */
+.notify-turn {
+  position: absolute;
+  top:-50px;
+  font-size: 1rem;
+  background: lightseagreen;
+  color: white;
+  padding: 0.4rem 0.6rem;
+  box-shadow: 2px 2px 5px #333;
+  border-radius: 4px;
+  display: none;
+}

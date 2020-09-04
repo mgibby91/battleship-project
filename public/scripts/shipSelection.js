@@ -1,5 +1,6 @@
 
-
+// On load tell player to place ships on their board
+// alert('Player: place ships on board!');
 
 // Select buttons for ship placement
 
@@ -344,9 +345,12 @@ class StartGame {
     startGameContainer.remove();
     document.querySelector('.orientation-container').remove();
     document.querySelector('.reset-ships-btn').remove();
-    document.querySelector('.reset-game-btn').style.display = 'flex';
+    // document.querySelector('.reset-game-btn').style.display = 'flex';
 
     document.querySelector('.previous-shots-container').style.display = 'flex';
+
+    // show notify player display
+    document.querySelector('.notify-turn').style.display = 'block';
 
   }
 

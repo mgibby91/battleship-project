@@ -26,7 +26,10 @@ app.post('/ships', (req, res) => {
 });
 
 app.get('/ships', (req, res) => {
-
+  //database query
+  .then(() => {
+    res.send(data)
+  })
   res.send(boardsDB);
 })
 
