@@ -1,6 +1,6 @@
 
 // On load tell player to place ships on their board
-// alert('Player: place ships on board!');
+alert('Player: place ships on board!');
 
 // Select buttons for ship placement
 
@@ -95,7 +95,6 @@ class ShipPlacement {
           if (i > 9) {
             this.isOnBoard = false;
             continue;
-            // Add logic to turn entire ship red when off board
           };
 
           const currentSpace = parentRowAllChildren[i];
@@ -133,15 +132,11 @@ class ShipPlacement {
 
     for (let col of playerBoardAllCols) {
       col.style.background = 'lightskyblue'
-      // conditional if not className for ship selection
     }
 
   }
 
   chooseShipPlacement(e) {
-
-    // Logic to prevent ship from being placed on another ship
-    // Probably turn it red if it hovers over other ship
 
     if (this.isOnBoard) {
 
@@ -247,7 +242,7 @@ class StartGame {
 
     difficultyButtonContainer.addEventListener('click', this.toggleDifficulty);
     startGameButton.addEventListener('click', this.startGame);
-    startGameButton.addEventListener('click', this.updateShipsDB);
+    // startGameButton.addEventListener('click', this.updateShipsDB);
     startGameButton.addEventListener('click', this.changeStartButtons);
   }
 
@@ -291,12 +286,6 @@ class StartGame {
       [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     ];
 
-    const chosenDifficulty = document.querySelector('.difficulty-selected').textContent.toLowerCase();
-
-    // map difficulty chosen to function that AI will use for their turn
-    // logic for player shooting on computer board
-    // turn player-ships-container into previos moves chart
-
     this.setPlayerShips();
     easyShipPlacement();
 
@@ -317,35 +306,11 @@ class StartGame {
 
   }
 
-  updateShipsDB() {
-
-    const shipsData = {
-      compBoardArray: computerBoardArray,
-      playBoardArray: playerBoardArray
-    };
-
-    console.log(shipsData);
-
-    $.post({
-      url: '/ships',
-      data: JSON.stringify(shipsData),
-      contentType: 'application/json',
-    })
-      .then(function() {
-        console.log('DB has been updated with initial ship placement');
-      })
-      .catch(function() {
-        console.log('Error thrown');
-      })
-
-  }
-
   changeStartButtons() {
 
     startGameContainer.remove();
     document.querySelector('.orientation-container').remove();
     document.querySelector('.reset-ships-btn').remove();
-    // document.querySelector('.reset-game-btn').style.display = 'flex';
 
     document.querySelector('.previous-shots-container').style.display = 'flex';
 
@@ -354,6 +319,33 @@ class StartGame {
 
   }
 
+
+  // ************************************************************************
+  // AJAX REQS TO PAIR WITH SERVER FOR STRETCH GOALS - FUTURE WORK!
+  // ************************************************************************
+
+  // updateShipsDB() {
+
+  //   const shipsData = {
+  //     compBoardArray: computerBoardArray,
+  //     playBoardArray: playerBoardArray
+  //   };
+
+  //   console.log(shipsData);
+
+  //   $.post({
+  //     url: '/ships',
+  //     data: JSON.stringify(shipsData),
+  //     contentType: 'application/json',
+  //   })
+  //     .then(function() {
+  //       console.log('DB has been updated with initial ship placement');
+  //     })
+  //     .catch(function() {
+  //       console.log('Error thrown');
+  //     })
+
+  // }
 
 }
 

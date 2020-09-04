@@ -5,8 +5,6 @@ const computerBoardAllCols = document.querySelectorAll('.computer-col');
 
 computerBoardContainer.addEventListener('click', playerFireShot);
 
-// CLASS firing shots here to...
-
 function playerFireShot(e) {
 
   let shipType;
@@ -104,8 +102,6 @@ function updatePlayerBoardUI() {
 
 }
 
-// .....to here (CLASS firing shots);
-
 function updatePreviousShotsList(row, col, playerType, shotSuccess, shipSunk) {
 
   const rowAlphaCoords = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'];
@@ -158,39 +154,29 @@ function determineShipSunk(boardType, shipType) {
 }
 
 
-
-$(() => {
-
-  $.ajax('/ships', { method: 'GET' })
-    .then(function(shipsArrays) {
-      console.log(shipsArrays);
-
-      if (shipsArrays.playBoardArray.length && shipsArrays.compBoardArray.length) {
-        playerBoardArray = shipsArrays.playBoardArray;
-        computerBoardArray = shipsArrays.compBoardArray;
-
-        // next step is to implement a post on every shot fire for both player and cpu
-        // also figure out how to update player board with ships AND shots fired 
-        // ... above doesn't work with current update player board func b/c doesn't take into account ships
-      }
-    })
-    .catch(function(err) {
-      console.log('Error! ', err);
-    });
+// ************************************************************************
+  // AJAX REQS TO PAIR WITH SERVER FOR STRETCH GOALS - FUTURE WORK!
+// ************************************************************************
 
 
-});
+// $(() => {
+
+//   $.ajax('/ships', { method: 'GET' })
+//     .then(function(shipsArrays) {
+//       console.log(shipsArrays);
+
+//       if (shipsArrays.playBoardArray.length && shipsArrays.compBoardArray.length) {
+//         playerBoardArray = shipsArrays.playBoardArray;
+//         computerBoardArray = shipsArrays.compBoardArray;
+
+//         // next step is to implement a post on every shot fire for both player and cpu
+//         // also figure out how to update player board with ships AND shots fired 
+//         // ... above doesn't work with current update player board func b/c doesn't take into account ships
+//       }
+//     })
+//     .catch(function(err) {
+//       console.log('Error! ', err);
+//     });
 
 
-
-// Remaining
-// - random amount of time for computer to shoot shot! between 0.5 - 2 s
-// - use spinner for computer thinking about shot
-// - show sunken ship after all hits on ship 
-// - hook up to server and render pages from there
-// - use EJS for decreasing lines of HTML
-// - use DB (or maybe local storage) for storing game state (refresh page and still have active game)
-// - display all previous moves
-// - function to determine if ship has sunk for above
-// - put A-H and 1-10 around the boards
-// - leaderboard for games against AI
+// });

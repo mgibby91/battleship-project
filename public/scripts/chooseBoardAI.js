@@ -79,25 +79,6 @@ const updateBoardCompShips = function(shipInfo) {
     }
   }
 
-  // console.log('computer board', JSON.stringify(computerBoardArray));
-
-  // console.log(computerBoardArray[0]);
-  // console.log(computerBoardArray[1]);
-  // console.log(computerBoardArray[2]);
-  // console.log(computerBoardArray[3]);
-  // console.log(computerBoardArray[4]);
-  // console.log(computerBoardArray[5]);
-  // console.log(computerBoardArray[6]);
-  // console.log(computerBoardArray[7]);
-  // console.log(computerBoardArray[8]);
-  // console.log(computerBoardArray[9]);
-
-  // console.log(computerBoardArray);
-
-  // for (let i = 0; i < computerBoardArray.length; i++) {
-  //   console.log(computerBoardArray[i]);
-  // }
-
 }
 
 
