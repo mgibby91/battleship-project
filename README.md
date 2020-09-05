@@ -6,8 +6,8 @@ It is a stretch project for the Lighthouse Labs Web Development Bootcamp. This a
 
 ## Final Product
 
-!["Screenshot of ship placement and choosing AI difficulty"](https://github.com/mgibby91/battleship-project/blob/master/docs/battleship-ship-placement.png?raw=true)
-!["Screenshot of gameplay"](https://github.com/mgibby91/battleship-project/blob/master/docs/battleship-gameplay.png?raw=true)
+![Screenshot of ship placement and choosing AI difficulty](https://github.com/mgibby91/battleship-project/blob/master/docs/battleship-ship-placement.png?raw=true)
+![Screenshot of gameplay](https://github.com/mgibby91/battleship-project/blob/master/docs/battleship-gameplay.png?raw=true)
 
 ## Computer AI Modes
 
@@ -27,4 +27,4 @@ Coming soon!
 ## Getting Started
 
 1. Fork this repository, then clone your fork of this repository.
-2. Open the html file with your browser and start playing!
+2. Open the HTML file with your browser and start playing!
