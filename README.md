@@ -6,7 +6,9 @@ It is a stretch project for the Lighthouse Labs Web Development Bootcamp. This a
 
 ## Final Product
 
+Ship placement and choosing AI difficulty
 ![Screenshot of ship placement and choosing AI difficulty](https://github.com/mgibby91/battleship-project/blob/master/docs/battleship-ship-placement.png?raw=true)
+Gameplay!
 ![Screenshot of gameplay](https://github.com/mgibby91/battleship-project/blob/master/docs/battleship-gameplay.png?raw=true)
 
 ## Computer AI Modes
