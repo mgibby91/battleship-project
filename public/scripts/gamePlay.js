@@ -124,8 +124,18 @@ function updatePreviousShotsList(row, col, playerType, shotSuccess, shipSunk) {
 
       // update ships sunk list
       const shipSunkFromList = document.querySelector(`.${playerComputerOpposites[playerType]}-${shipSunk.toLowerCase()}-sunk`);
-      console.log(shipSunkFromList);
       shipSunkFromList.classList.add('ship-has-sunk');
+
+      const allSunkShips = document.querySelectorAll('.ship-has-sunk');
+
+      const filteredPlayerSunkShips = Array.prototype.slice.call(allSunkShips).filter(sunkShip => sunkShip.className.split('-')[0] === 'player');
+      const filteredComputerSunkShips = Array.prototype.slice.call(allSunkShips).filter(sunkShip => sunkShip.className.split('-')[0] === 'computer');
+
+      console.log('filter player', filteredPlayerSunkShips);
+      console.log('filtered comp', filteredComputerSunkShips);
+
+      if (filteredPlayerSunkShips.length === 5) alert('Computer wins! Wow you must not be very good...');
+      if (filteredComputerSunkShips.length === 5) alert('Player wins! Whoop-de-doo, you beat the computer...')
 
     }, 500);
 
