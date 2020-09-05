@@ -131,9 +131,6 @@ function updatePreviousShotsList(row, col, playerType, shotSuccess, shipSunk) {
       const filteredPlayerSunkShips = Array.prototype.slice.call(allSunkShips).filter(sunkShip => sunkShip.className.split('-')[0] === 'player');
       const filteredComputerSunkShips = Array.prototype.slice.call(allSunkShips).filter(sunkShip => sunkShip.className.split('-')[0] === 'computer');
 
-      console.log('filter player', filteredPlayerSunkShips);
-      console.log('filtered comp', filteredComputerSunkShips);
-
       if (filteredPlayerSunkShips.length === 5) alert('Computer wins! Wow you must not be very good...');
       if (filteredComputerSunkShips.length === 5) alert('Player wins! Whoop-de-doo, you beat the computer...')
 

@@ -29,4 +29,4 @@ Coming soon!
 ## Getting Started
 
 1. Fork this repository, then clone your fork of this repository.
-2. Open the HTML file with your browser and start playing!
+2. Open the HTML file (public directory) with your browser and start playing!
