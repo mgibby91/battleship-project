@@ -6,15 +6,22 @@ It is a stretch project for the Lighthouse Labs Web Development Bootcamp. This a
 
 ## Final Product
 
-<!-- !["Screenshot of user composing a tweet"](https://github.com/mgibby91/tweeter/blob/master/docs/tweeter-compose-tweet.png)
-!["Screenshot of going over character limit"](https://github.com/mgibby91/tweeter/blob/master/docs/tweeter-over-limit.png)
-!["Screenshot of mobile-responsiveness"](https://github.com/mgibby91/tweeter/blob/master/docs/tweeter-mobile-responsive.png) -->
+!["Screenshot of ship placement and choosing AI difficulty"](https://github.com/mgibby91/battleship-project/blob/master/docs/battleship-ship-placement.png?raw=true)
+!["Screenshot of gameplay"](https://github.com/mgibby91/battleship-project/blob/master/docs/battleship-gameplay.png?raw=true)
 
 ## Computer AI Modes
 
 ### Easy Mode
 
-* 
+Computer will fire at random!
+
+### Medium Mode
+
+Computer will fire at random until a ship has been hit. Then, the computer will hunt close spaces by prioritizing adjacent squares! Only once these spaces have been shot at will the computer continue to to fire at random.
+
+### Hard Mode
+
+Coming soon!
 
 
 ## Getting Started
