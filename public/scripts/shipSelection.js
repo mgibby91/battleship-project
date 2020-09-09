@@ -142,13 +142,13 @@ class ShipPlacement {
 
       // Check to see if ships are overlapping
       for (let col of playerBoardAllCols) {
-        if (col.style.background === 'lightseagreen' && col.className.split(' ')[2]) {
+        if (col.style.background.split(' ')[0] === 'lightseagreen' && col.className.split(' ')[2]) {
           return;
         }
       }
 
       for (let col of playerBoardAllCols) {
-        if (col.style.background === 'lightseagreen') {
+        if (col.style.background.split(' ')[0] === 'lightseagreen') {
           col.classList.add('ship-placement-selected');
           const shipType = document.querySelector('.ship-selected').textContent;
           if (shipType.slice(0, 7) === 'Carrier') col.classList.add('C');

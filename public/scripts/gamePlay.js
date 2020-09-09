@@ -20,6 +20,8 @@ function playerFireShot(e) {
 
     } else if (computerBoardArray[row][col] === 'X' || computerBoardArray[row][col] === 'M') {
       // already shot on space
+      return;
+
     } else {
       // hit
       shipType = computerBoardArray[row][col];
