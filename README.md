@@ -13,6 +13,12 @@ OR:
 1. Fork this repository, then clone your fork of this repository.
 2. Open the HTML file (root directory) with your browser and start playing!
 
+## Technologies Learned
+
+* HTML, CSS and Vanilla JS
+* ES6 Class-based Object Oriented-Programming
+
+
 ## Final Product
 
 **Ship placement and choosing AI difficulty**
