@@ -4,6 +4,15 @@ This project is a front-end battleship game played in the browser.
 
 It is a stretch project for the Lighthouse Labs Web Development Bootcamp. This app intended to practice HTML, CSS and client-side JS while receiving minimal mentor assistance in order to further stretch independance and problem solving skills.
 
+## Getting Started
+
+Visit https://battleship-project.netlify.app/
+
+OR:
+
+1. Fork this repository, then clone your fork of this repository.
+2. Open the HTML file (root directory) with your browser and start playing!
+
 ## Final Product
 
 **Ship placement and choosing AI difficulty**
@@ -26,7 +35,4 @@ Computer will fire at random until a ship has been hit. Then, the computer will 
 Coming soon!
 
 
-## Getting Started
 
-1. Fork this repository, then clone your fork of this repository.
-2. Open the HTML file (public directory) with your browser and start playing!
